@@ -50,18 +50,6 @@ mutation CreateTodo {
 }
 ```
 
-### 3. Subscription (실시간 구독)
-
-```graphql
-subscription OnTodoAdded {
-  todoAdded {
-    id
-    title
-    completed
-  }
-}
-```
-
 ## React에서의 GraphQL 사용 방법
 
 이 프로젝트에서는 Apollo Client를 사용하여 React에서 GraphQL을 사용하는 세 가지 방법을 보여줍니다:
