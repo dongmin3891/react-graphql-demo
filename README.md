@@ -2,6 +2,49 @@
 
 이 프로젝트는 GraphQL의 기본 개념과 사용 방법을 보여주는 데모 애플리케이션입니다. Todo 리스트를 통해 GraphQL의 다양한 기능을 실습해볼 수 있습니다.
 
+## 시작하기
+
+### Apollo Client 설정
+
+1. 필요한 패키지 설치:
+
+```bash
+npm install @apollo/client graphql
+```
+
+2. Apollo Client 초기화:
+
+```typescript
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+// Apollo Client 인스턴스 생성
+const client = new ApolloClient({
+  uri: "https://graphqlzero.almansi.me/api", // GraphQL 서버 주소
+  cache: new InMemoryCache(), // 캐시 설정
+});
+```
+
+3. 애플리케이션에 Apollo Provider 적용:
+
+```typescript
+import { ApolloProvider } from "@apollo/client";
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <div className="App">{/* 여기에 컴포넌트들이 위치합니다 */}</div>
+    </ApolloProvider>
+  );
+}
+```
+
+### Apollo Client 주요 설정 옵션
+
+- `uri`: GraphQL 서버의 엔드포인트 주소
+- `cache`: 클라이언트 측 캐시 설정 (InMemoryCache 사용)
+- `headers`: 인증 토큰 등 요청 헤더 설정
+- `defaultOptions`: 쿼리/뮤테이션의 기본 동작 설정
+
 ## GraphQL이란?
 
 GraphQL은 API를 위한 쿼리 언어이며 기존 REST API의 한계를 극복하기 위해 Facebook에서 만든 규격입니다.
